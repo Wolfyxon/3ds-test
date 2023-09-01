@@ -21,8 +21,8 @@ void Console::print(string text){
 }
 
 void Console::render(){
-    consoleClear();
     consoleInit(screen, NULL);
+    consoleClear();
 
     for(int i = 0; i<(int)output.size(); i++){
         cout << getPositionPrefix(i+1) << output[i];
