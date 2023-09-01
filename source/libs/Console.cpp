@@ -21,6 +21,9 @@ Console::~Console(){
 }
 
 void Console::print(string text){
+    if((int)output.size() > 30){
+        output.erase(output.begin());
+    }
     output.push_back(text);
 }
 
