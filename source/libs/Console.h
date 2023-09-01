@@ -11,6 +11,7 @@ class Console
 private:
     vector<string> output;
     gfxScreen_t screen;
+    PrintConsole printConsole;
 public:
     bool clearOnRender;
 

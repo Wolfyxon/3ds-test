@@ -13,7 +13,9 @@ string getPositionPrefix(int row, int column = 0){
 
 Console::Console(gfxScreen_t screen_){
     gfxScreen_t screen = screen_;
+    gfxScreen_t initScreen = screen_;
     vector<string> output;
+    PrintConsole printConsole;
 }
 
 Console::~Console(){
@@ -29,10 +31,11 @@ void Console::clear(){
 }
 
 void Console::render(){
-    consoleInit(screen, NULL);
-    consoleClear();
+    consoleInit(screen, &printConsole);
+    //consoleSelect(&printConsole);
+    //consoleClear();
 
     for(int i = 0; i<(int)output.size(); i++){
-        cout << getPositionPrefix(i+1) << output[i];
+        cout << getPositionPrefix(i) << output[i];
     }
 }
