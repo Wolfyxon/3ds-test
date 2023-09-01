@@ -8,6 +8,8 @@ int main(int argc, char **argv)
 	gfxInitDefault();
 	Console *cons = new Console(GFX_TOP);
 	cons->print("test");
+	cons->print("test2");
+	cons->print("test3");
 
 	while (aptMainLoop())
 	{		
