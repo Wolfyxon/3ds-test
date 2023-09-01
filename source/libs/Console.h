@@ -10,9 +10,10 @@ class Console
 {
 private:
     vector<string> output;
-    gfxScreen_t screen;
     PrintConsole printConsole;
 public:
+    gfxScreen_t screen;
+
     Console(gfxScreen_t screen_);
     ~Console();
     void print(string text);
