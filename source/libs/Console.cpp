@@ -16,6 +16,10 @@ Console::Console(gfxScreen_t screen_){
     vector<string> output;
 }
 
+Console::~Console(){
+    clear();
+}
+
 void Console::print(string text){
     output.push_back(text);
 }
