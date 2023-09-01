@@ -38,7 +38,7 @@ void Console::render(){
 
     for(int i = 0; i<(int)output.size(); i++){
         int topOffset = i+1;
-        if(screen == 0) topOffset += 30;
+        if(screen == GFX_BOTTOM) topOffset += 30;
         cout << getPositionPrefix(topOffset) << output[i];
     }
 }
