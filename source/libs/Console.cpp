@@ -26,6 +26,6 @@ void Console::render(){
     consoleInit(screen, NULL);
 
     for(int i = 0; i<(int)output.size(); i++){
-        cout << getPositionPrefix(i) << output[i];
+        cout << getPositionPrefix(i+1) << output[i];
     }
 }
