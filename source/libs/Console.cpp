@@ -11,13 +11,9 @@ string getPositionPrefix(int row, int column = 0){
     return "\x1b[" + to_string(row) + ";" + to_string(column) + "H";
 }
 
+gfxScreen_t screen;
 Console::Console(gfxScreen_t screen_){
-    print(to_string(screen_));
-    gfxScreen_t screen = screen_;
-    gfxScreen_t initScreen = screen_;
-    vector<string> output;
-    PrintConsole printConsole;
-    print(to_string(screen));
+    screen = screen_;
 }
 
 Console::~Console(){
@@ -36,9 +32,9 @@ void Console::render(){
     consoleInit(screen, &printConsole);
     consoleSelect(&printConsole);
     //consoleClear();
-
+    
     for(int i = 0; i<(int)output.size(); i++){
         int topOffset = i+1;
-        cout << getPositionPrefix(topOffset) << output[i] << to_string(screen);
+        cout << getPositionPrefix(topOffset) << output[i];
     }
 }

@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
 	while (aptMainLoop())
 	{		
-		//topCons->render();
+		topCons->render();
 		bottomCons->render();
 
 		hidScanInput();
