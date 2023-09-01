@@ -25,7 +25,7 @@ void Console::render(){
     if(clearOnRender) consoleClear();
     consoleInit(screen, NULL);
 
-    for(int i = 0; i<output.size(); i++){
+    for(int i = 0; i<(int)output.size(); i++){
         cout << getPositionPrefix(i) << output[i];
     }
 }
