@@ -13,7 +13,6 @@ private:
     gfxScreen_t screen;
 public:
     bool clearOnRender;
-    PrintConsole* printConsole;
 
     Console(gfxScreen_t screen_);
     ~Console();
