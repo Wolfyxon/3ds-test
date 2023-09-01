@@ -26,6 +26,8 @@ int main(int argc, char **argv)
 		hidScanInput();
 		u32 kDown = hidKeysDown();
 		if (kDown & KEY_A) bottomCons->print("A pressed");
+		if (kDown & KEY_B) bottomCons->print("B pressed");
+		
 		if (kDown & KEY_START) break;
 
 		gfxFlushBuffers();
