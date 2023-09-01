@@ -14,6 +14,7 @@ string getPositionPrefix(int row, int column = 0){
 Console::Console(gfxScreen_t screen_){
     gfxScreen_t screen = screen_;
     vector<string> output;
+    PrintConsole* printConsole = consoleInit(screen, NULL);
 }
 
 void Console::print(string text){
@@ -21,7 +22,7 @@ void Console::print(string text){
 }
 
 void Console::render(){
-    consoleInit(screen, NULL);
+    consoleSelect(printConsole);
     consoleClear();
 
     for(int i = 0; i<(int)output.size(); i++){
