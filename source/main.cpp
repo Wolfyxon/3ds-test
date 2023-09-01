@@ -12,6 +12,9 @@ int main(int argc, char **argv)
 	topCons->print("top test3");
 
 	Console *bottomCons = new Console(GFX_BOTTOM);
+	bottomCons->print(to_string(GFX_BOTTOM));
+	bottomCons->print(to_string(GFX_TOP));
+	
 	bottomCons->print("bottom test");
 	bottomCons->print("bottom test2");
 	bottomCons->print("bottom test3");
@@ -20,7 +23,7 @@ int main(int argc, char **argv)
 
 	while (aptMainLoop())
 	{		
-		topCons->render();
+		//topCons->render();
 		bottomCons->render();
 
 		hidScanInput();

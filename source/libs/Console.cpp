@@ -16,6 +16,7 @@ Console::Console(gfxScreen_t screen_){
     gfxScreen_t initScreen = screen_;
     vector<string> output;
     PrintConsole printConsole;
+    print(to_string(screen));
 }
 
 Console::~Console(){
@@ -32,10 +33,12 @@ void Console::clear(){
 
 void Console::render(){
     consoleInit(screen, &printConsole);
-    //consoleSelect(&printConsole);
+    consoleSelect(&printConsole);
     //consoleClear();
 
     for(int i = 0; i<(int)output.size(); i++){
-        cout << getPositionPrefix(i) << output[i];
+        int topOffset = i+1;
+        if(screen == 0) topOffset += 30;
+        cout << getPositionPrefix(topOffset) << output[i];
     }
 }
