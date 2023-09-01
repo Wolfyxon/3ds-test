@@ -32,13 +32,13 @@ void Console::clear(){
 }
 
 void Console::render(){
-    consoleInit(screen, &printConsole);
-    consoleSelect(&printConsole);
+    consoleInit(GFX_BOTTOM, &printConsole);
+    //consoleSelect(&printConsole);
     //consoleClear();
 
     for(int i = 0; i<(int)output.size(); i++){
         int topOffset = i+1;
         if(screen == GFX_BOTTOM) topOffset += 30;
-        cout << getPositionPrefix(topOffset) << output[i];
+        cout << getPositionPrefix(topOffset) <<to_string(screen);//<< output[i];
     }
 }
