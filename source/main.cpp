@@ -6,14 +6,21 @@
 int main(int argc, char **argv)
 {
 	gfxInitDefault();
-	Console *cons = new Console(GFX_TOP);
-	cons->print("test");
-	cons->print("test2");
-	cons->print("test3");
+	Console *topCons = new Console(GFX_TOP);
+	topCons->print("test");
+	topCons->print("test2");
+	topCons->print("test3");
+
+	Console *bottomCons = new Console(GFX_BOTTOM);
+	bottomCons->print("test");
+	bottomCons->print("test2");
+	bottomCons->print("test3");
+
 
 	while (aptMainLoop())
 	{		
-		cons->render();
+		topCons->render();
+		bottomCons->render();
 
 		hidScanInput();
 		u32 kDown = hidKeysDown();
