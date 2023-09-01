@@ -1,1 +1,3 @@
-https://github.com/Wolfyxon/3ds-libs.git
+[submodule "3ds-libs"]
+    path = source/3ds-libs
+    url = https://github.com/Wolfyxon/3ds-libs.git
