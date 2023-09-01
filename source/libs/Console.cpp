@@ -35,6 +35,15 @@ void Console::setFont(ConsoleFont font){
     consoleSetFont(&printConsole, &font);
 }
 
+int Console::getRows(){
+    return 30;
+}
+
+int Console::getColumns(){
+    if(screen == GFX_TOP) return 50;
+    if(screen == GFX_BOTTOM) return 40;
+}
+
 void Console::render(){
     consoleInit(screen, &printConsole);
     consoleSelect(&printConsole);

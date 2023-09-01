@@ -20,4 +20,6 @@ public:
     void clear();
     void render();
     void setFont(ConsoleFont font);
+    int getRows();
+    int getColumns();
 };
