@@ -7,14 +7,15 @@ int main(int argc, char **argv)
 {
 	gfxInitDefault();
 	Console *topCons = new Console(GFX_TOP);
-	topCons->print("test");
-	topCons->print("test2");
-	topCons->print("test3");
+	topCons->print("top test");
+	topCons->print("top test2");
+	topCons->print("top test3");
 
 	Console *bottomCons = new Console(GFX_BOTTOM);
-	bottomCons->print("test");
-	bottomCons->print("test2");
-	bottomCons->print("test3");
+	bottomCons->print("bottom test");
+	bottomCons->print("bottom test2");
+	bottomCons->print("bottom test3");
+	bottomCons->print("bottom test4");
 
 
 	while (aptMainLoop())
