@@ -8,7 +8,7 @@
 using namespace std;
 
 string getPositionPrefix(int row, int column = 0){
-    return "\x1b[" + to_string(row) + ";" + to_string(column);
+    return "\x1b[" + to_string(row) + ";" + to_string(column) + "H";
 }
 
 Console::Console(gfxScreen_t screen_){
