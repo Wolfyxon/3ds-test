@@ -11,9 +11,9 @@ string getPositionPrefix(int row, int column = 0){
     return "\x1b[" + to_string(row) + ";" + to_string(column);
 }
 
-Console::Console(gfxScreen_t screen_, bool clearOnRender_ = true){
+Console::Console(gfxScreen_t screen_){
     gfxScreen_t screen = screen_;
-    bool clearOnRender = clearOnRender_;
+    bool clearOnRender = true;
     vector<string> output;
 }
 

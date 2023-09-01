@@ -14,7 +14,7 @@ private:
 public:
     bool clearOnRender;
 
-    Console(gfxScreen_t screen_, bool clearOnRender_ = true);
+    Console(gfxScreen_t screen_);
     ~Console();
     void print(string text);
     void render();
