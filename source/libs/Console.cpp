@@ -31,6 +31,10 @@ void Console::clear(){
     output.clear();
 }
 
+void Console::setFont(ConsoleFont font){
+    consoleSetFont(&printConsole, &font);
+}
+
 void Console::render(){
     consoleInit(screen, &printConsole);
     consoleSelect(&printConsole);

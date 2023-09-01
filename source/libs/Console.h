@@ -19,4 +19,5 @@ public:
     void print(string text);
     void clear();
     void render();
+    void setFont(ConsoleFont font);
 };
