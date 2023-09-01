@@ -17,5 +17,6 @@ public:
     Console(gfxScreen_t screen_);
     ~Console();
     void print(string text);
+    void clear();
     void render();
 };

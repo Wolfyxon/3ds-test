@@ -20,6 +20,10 @@ void Console::print(string text){
     output.push_back(text);
 }
 
+void Console::clear(){
+    output.clear();
+}
+
 void Console::render(){
     consoleInit(screen, NULL);
     consoleClear();
