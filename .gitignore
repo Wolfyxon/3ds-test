@@ -5,3 +5,5 @@ cmake-build-debug
 *.cia
 *.3dsx
 *.elf
+*.lst
+*.smdh
