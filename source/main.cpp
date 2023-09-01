@@ -1,7 +1,7 @@
 #include <3ds.h>
 #include <stdio.h>
 #include <iostream>
-#include "libs/Console.h"
+#include "3ds-libs/Console.h"
 
 int main(int argc, char **argv)
 {
