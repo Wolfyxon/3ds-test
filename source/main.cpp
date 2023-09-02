@@ -5,6 +5,7 @@
 
 int main(int argc, char **argv)
 {
+	romfsInit();
 	gfxInitDefault();
 	Console *topCons = new Console(GFX_TOP);
 	topCons->print("top test");
@@ -42,6 +43,7 @@ int main(int argc, char **argv)
 		gspWaitForVBlank();
 	}
 
+	romfsExit();
 	gfxExit();
 	return 0;
 }
