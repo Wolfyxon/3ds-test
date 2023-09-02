@@ -37,7 +37,7 @@ SOURCES		:=	source source/3ds-libs
 DATA		:=	data
 INCLUDES	:=	include
 GRAPHICS	:=	gfx
-GFXBUILD	:=	$(BUILD)
+#GFXBUILD	:=	$(BUILD)
 ROMFS		:=	romfs
 GFXBUILD	:=	$(ROMFS)/gfx
 
