@@ -2,11 +2,16 @@
 #include <stdio.h>
 #include <iostream>
 #include "3ds-libs/Console.h"
+#include "3ds-libs/SpriteRenderer.h"
 
 int main(int argc, char **argv)
 {
 	romfsInit();
 	gfxInitDefault();
+	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
+	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
+	C2D_Prepare();
+
 	Console *topCons = new Console(GFX_TOP);
 	topCons->print("top test");
 	topCons->print("top test2");
@@ -19,10 +24,14 @@ int main(int argc, char **argv)
 	bottomCons->print("bottom test4");
 
 
+	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
+	sr->addSprite(sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0));
 	while (aptMainLoop())
 	{		
 		topCons->render();
-		bottomCons->render();
+		sr->render();
+		//bottomCons->render();
+
 
 		hidScanInput();
 		u32 kDown = hidKeysDown();
