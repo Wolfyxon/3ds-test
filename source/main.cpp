@@ -25,7 +25,8 @@ int main(int argc, char **argv)
 
 
 	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
-	sr->addSprite(sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0));
+	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
+	sr->addSprite(&s);
 	while (aptMainLoop())
 	{		
 		topCons->render();
@@ -43,6 +44,14 @@ int main(int argc, char **argv)
 			topCons->print("B pressed");
 			bottomCons->print("B pressed");
 		};
+
+		if(kDown & KEY_LEFT){
+			//s->posX -= 2;
+		}
+		if(kDown & KEY_RIGHT){
+			s.posX += 2;
+			topCons->print(to_string(s.posX));
+		}
 		
 		if (kDown & KEY_START) break;
 
