@@ -27,6 +27,7 @@ int main(int argc, char **argv)
 	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
 	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
 	sr->addSprite(&s);
+	float speed = 5;
 	while (aptMainLoop())
 	{		
 		topCons->render();
@@ -36,6 +37,7 @@ int main(int argc, char **argv)
 
 		hidScanInput();
 		u32 kDown = hidKeysDown();
+		u32 kHeld = keysHeld();
 		if (kDown & KEY_A) {
 			topCons->print("A pressed");			
 			bottomCons->print("A pressed");
@@ -45,13 +47,18 @@ int main(int argc, char **argv)
 			bottomCons->print("B pressed");
 		};
 
-		if(kDown & KEY_LEFT){
-			//s->posX -= 2;
-		}
-		if(kDown & KEY_RIGHT){
-			s.posX += 2;
-			topCons->print(to_string(s.posX));
-		}
+		if(kHeld & KEY_LEFT){
+			s.posX -= speed;
+		};
+		if(kHeld & KEY_RIGHT){
+			s.posX += speed;
+		};
+		if(kHeld & KEY_UP){
+			s.posY -= speed;
+		};
+		if(kHeld & KEY_DOWN){
+			s.posY += speed;
+		};
 		
 		if (kDown & KEY_START) break;
 
