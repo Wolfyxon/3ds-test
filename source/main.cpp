@@ -3,6 +3,7 @@
 #include <iostream>
 #include "3ds-libs/Console.h"
 #include "3ds-libs/SpriteRenderer.h"
+#include "3ds-libs/OpusAudioPlayer.h"
 
 int main(int argc, char **argv)
 {
@@ -23,7 +24,9 @@ int main(int argc, char **argv)
 	bottomCons->print("bottom test3");
 	bottomCons->print("bottom test4");
 
-
+	OpusAudioPlayer* audio = new OpusAudioPlayer();
+	audio->load("romfs:/sample.opus");
+	audio->play();
 	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
 	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
 	sr->addSprite(&s);
