@@ -8,6 +8,7 @@
 int main(int argc, char **argv)
 {
 	romfsInit();
+	ndspInit();
 	gfxInitDefault();
 	C3D_Init(C3D_DEFAULT_CMDBUF_SIZE);
 	C2D_Init(C2D_DEFAULT_MAX_OBJECTS);
@@ -25,7 +26,7 @@ int main(int argc, char **argv)
 	bottomCons->print("bottom test4");
 
 	OpusAudioPlayer* audio = new OpusAudioPlayer();
-	audio->load("romfs:/sample.opus");
+	if(audio->load("romfs:/sample.opus")) topCons->print("Audio loaded");
 	audio->play();
 	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
 	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
@@ -70,7 +71,7 @@ int main(int argc, char **argv)
 
 		gspWaitForVBlank();
 	}
-
+	ndspExit();
 	romfsExit();
 	gfxExit();
 	return 0;
