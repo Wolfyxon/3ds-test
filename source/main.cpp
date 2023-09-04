@@ -30,7 +30,6 @@ int main(int argc, char **argv)
     ndspChnSetInterp(0, NDSP_INTERP_POLYPHASE);
     ndspChnSetRate(0, 48000);
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
-
 	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
 	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
 	sr->addSprite(&s);
