@@ -15,9 +15,13 @@ int main(int argc, char **argv)
 	C2D_Prepare();
 
 	Console *topCons = new Console(GFX_TOP);
-	topCons->print("top test");
-	topCons->print("top test2");
-	topCons->print("top test3");
+	topCons->print(topCons->bg(red)+topCons->fg(yellow)+"Test ANSI colors");
+	topCons->print(topCons->fg(magenta)+"this is a test");
+	topCons->print("Press "+topCons->ansi(bold)+"A"+topCons->ansi(reset)+" to show a test message");
+	topCons->print("Press "+topCons->ansi(bold)+"B"+topCons->ansi(reset)+" to show another test message");
+	topCons->print("Press "+topCons->ansi(bold)+"SELECT"+topCons->ansi(reset)+" to clear the console");
+	topCons->print("Press "+topCons->ansi(bold)+"START"+topCons->ansi(reset)+" to exit");
+	
 
 	Console *bottomCons = new Console(GFX_BOTTOM);	
 	bottomCons->print("bottom test");
@@ -52,6 +56,9 @@ int main(int argc, char **argv)
 			topCons->print("B pressed");
 			bottomCons->print("B pressed");
 		};
+		if (kDown & KEY_SELECT){
+			topCons->clear();
+		}
 
 		if(kHeld & KEY_LEFT){
 			s.posX -= speed;
