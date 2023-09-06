@@ -31,12 +31,16 @@ include $(DEVKITARM)/3ds_rules
 #     - icon.png
 #     - <libctru folder>/default_icon.png
 #---------------------------------------------------------------------------------
-3DS_LIBS     := source/3ds-libs
-3DS_LIBS_DIRS := $(3DS_LIBS) $(3DS_LIBS)/renderable $(3DS_LIBS)/structure
+3DS_LIBS          := source/3ds-libs
+3DS_LIBS_SRC      := $(3DS_LIBS)/source
+3DS_LIBS_INC      := $(3DS_LIBS)/include
+3DS_LIBS_SRC_DIRS := $(3DS_LIBS) $(3DS_LIBS_SRC)/renderable $(3DS_SRC)/structure
+3DS_LIBS_INC_DIRS := $(3DS_LIBS) $(3DS_LIBS_INC)/renderable $(3DS_LIBS)/structure
+3DS_LIBS_DIRS     := $(3DS_LIBS_INC_DIRS) $(#3DS_LIBS_SRC)
 
 TARGET		 :=	$(notdir $(CURDIR))
 BUILD		 :=	build
-SOURCES		 :=	source $(3DS_LIBS) 
+SOURCES		 :=	source $(3DS_LIBS_DIRS) 
 DATA		 :=	data
 INCLUDES	 :=	include
 GRAPHICS	 :=	gfx

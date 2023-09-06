@@ -1,9 +1,9 @@
 #include <3ds.h>
 #include <stdio.h>
 #include <iostream>
-#include "3ds-libs/Console.h"
-#include "3ds-libs/SpriteRenderer.h"
-#include "3ds-libs/OpusAudioPlayer.h"
+#include "3ds-libs/include/Console.h"
+#include "3ds-libs/include/SpriteRenderer.h"
+#include "3ds-libs/include/OpusAudioPlayer.h"
 
 int main(int argc, char **argv)
 {
