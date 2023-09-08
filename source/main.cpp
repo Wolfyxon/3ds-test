@@ -36,10 +36,11 @@ int main(int argc, char **argv)
     ndspChnSetRate(0, 48000);
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
 
-	
+
 	Scene* scene = new Scene(GFX_BOTTOM);
 	Sprite* s = new Sprite();
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
+	scene->addChild((TreeElement*)&s);
 
 	float speed = 5;
 	while (aptMainLoop())
