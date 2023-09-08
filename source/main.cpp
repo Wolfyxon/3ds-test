@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <iostream>
 #include "3ds-libs/include/Console.h"
-#include "3ds-libs/include/SpriteRenderer.h"
 #include "3ds-libs/include/OpusAudioPlayer.h"
+#include "3ds-libs/include/renderable/Sprite.h"
+#include "3ds-libs/include/renderable/Scene.h"
 
 int main(int argc, char **argv)
 {
@@ -34,14 +35,17 @@ int main(int argc, char **argv)
     ndspChnSetInterp(0, NDSP_INTERP_POLYPHASE);
     ndspChnSetRate(0, 48000);
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
-	SpriteRenderer* sr = new SpriteRenderer(GFX_BOTTOM);
-	Sprite s = sr->getSpriteFromSheetFile("romfs:/gfx/test.t3x",0);
-	sr->addSprite(&s);
+
+	
+	Scene* scene = new Scene(GFX_BOTTOM);
+	Sprite* s = new Sprite();
+	s->loadFromSheetFile("romfs:/gfx/test.t3x");
+
 	float speed = 5;
 	while (aptMainLoop())
-	{		
+	{	
+		scene->render();
 		topCons->render();
-		sr->render();
 		//bottomCons->render();
 
 
@@ -61,16 +65,16 @@ int main(int argc, char **argv)
 		}
 
 		if(kHeld & KEY_LEFT){
-			s.posX -= speed;
+			s->posX -= speed;
 		};
 		if(kHeld & KEY_RIGHT){
-			s.posX += speed;
+			s->posX += speed;
 		};
 		if(kHeld & KEY_UP){
-			s.posY -= speed;
+			s->posY -= speed;
 		};
 		if(kHeld & KEY_DOWN){
-			s.posY += speed;
+			s->posY += speed;
 		};
 		
 		if (kDown & KEY_START) break;
