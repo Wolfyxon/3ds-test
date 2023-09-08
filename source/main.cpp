@@ -1,7 +1,6 @@
 #include <3ds.h>
 #include <stdio.h>
 #include <iostream>
-#include <memory>
 #include "3ds-libs/include/Console.h"
 #include "3ds-libs/include/OpusAudioPlayer.h"
 #include "3ds-libs/include/renderable/Sprite.h"
@@ -38,7 +37,7 @@ int main(int argc, char **argv)
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
 
 	
-	auto scene = std::make_unique<Scene>(GFX_BOTTOM);
+	Scene* scene = new Scene(GFX_BOTTOM);
 	Sprite* s = new Sprite();
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
 
