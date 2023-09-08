@@ -39,13 +39,29 @@ int main(int argc, char **argv)
 
 	Scene* scene = new Scene(GFX_BOTTOM);
 	Sprite* s = new Sprite();
+	Sprite* s2 = new Sprite();
+	
+	scene->name = "scene";
+	s->name = "s1";
+	s2->name = "s2";
+	topCons->print(scene->name);
+	topCons->print(s->name);
+	topCons->print(s2->name);
+
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
 	scene->addChild((TreeElement*)&s);
-
+	scene->addChild((TreeElement*)&s2);
+	
+	vector<TreeElement*> desc = scene->getChildren();
+	topCons->print(to_string(desc.size()));
+	for(size_t i=0;i<desc.size();i++){
+		TreeElement* d = desc[i];
+		topCons->print(d->name);
+	}
 	float speed = 5;
 	while (aptMainLoop())
 	{	
-		scene->render();
+		//scene->render();
 		topCons->render();
 		//bottomCons->render();
 
