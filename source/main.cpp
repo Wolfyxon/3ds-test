@@ -37,6 +37,7 @@ int main(int argc, char **argv)
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
 
 
+	TreeElement* el = new TreeElement();
 	Scene* scene = new Scene(GFX_BOTTOM);
 	Sprite* s = new Sprite();
 	Sprite* s2 = new Sprite();
@@ -51,6 +52,7 @@ int main(int argc, char **argv)
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
 	scene->addChild((TreeElement*)&s);
 	scene->addChild((TreeElement*)&s2);
+	scene->addChild(el);
 	
 	vector<TreeElement*> desc = scene->getChildren();
 	topCons->print(to_string(desc.size()));
