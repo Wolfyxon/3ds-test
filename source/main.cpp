@@ -56,9 +56,8 @@ int main(int argc, char **argv)
 	
 	vector<TreeElement*> desc = scene->getChildren();
 	topCons->print(to_string(desc.size()));
-	for(size_t i=0;i<desc.size();i++){
-		TreeElement* d = desc[i];
-		topCons->print(d->name);
+	for(TreeElement* d : desc){
+		topCons->print(d->getType());
 	}
 	float speed = 5;
 	while (aptMainLoop())
