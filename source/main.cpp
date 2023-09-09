@@ -42,16 +42,16 @@ int main(int argc, char **argv)
 	Sprite* s = new Sprite();
 	Sprite* s2 = new Sprite();
 	
-	scene->name = "scene";
-	s->name = "s1";
-	s2->name = "s2";
+	//scene->name = "scene";
+	//s->name = "s1";
+	//s2->name = "s2";
 	topCons->print(scene->name);
 	topCons->print(s->name);
 	topCons->print(s2->name);
 
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
-	scene->addChild((TreeElement*)&s);
-	scene->addChild((TreeElement*)&s2);
+	scene->addChild(s);
+	scene->addChild(s2);
 	scene->addChild(el);
 	
 	vector<TreeElement*> desc = scene->getChildren();
