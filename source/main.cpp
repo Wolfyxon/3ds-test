@@ -6,6 +6,10 @@
 #include "3ds-libs/include/renderable/Sprite.h"
 #include "3ds-libs/include/renderable/Scene.h"
 
+using std::string;
+using std::vector;
+using std::to_string;
+
 int main(int argc, char **argv)
 {
 	romfsInit();
@@ -38,7 +42,7 @@ int main(int argc, char **argv)
 
 
 	TreeElement* el = new TreeElement();
-	Scene* scene = new Scene(GFX_BOTTOM,C2D_Color32(1.0f,0.0f,0.0f,1.0f));
+	Scene* scene = new Scene(GFX_BOTTOM,C2D_Color32f(1.0f,0.0f,0.0f,1.0f));
 	Sprite* s = new Sprite();
 	Sprite* s2 = new Sprite();
 	
@@ -52,7 +56,7 @@ int main(int argc, char **argv)
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
 	scene->addChild(s);
 	scene->addChild(s2);
-	scene->addChild(el);
+	//scene->addChild(el);
 	
 	vector<TreeElement*> desc = scene->getChildren();
 	topCons->print(to_string(desc.size()));
@@ -62,12 +66,11 @@ int main(int argc, char **argv)
 	}
 	float speed = 5;
 	while (aptMainLoop())
-	{	
-		scene->render();
+	{
+
 		topCons->render();
 		//bottomCons->render();
-
-
+		
 		hidScanInput();
 		u32 kDown = hidKeysDown();
 		u32 kHeld = keysHeld();
@@ -97,9 +100,11 @@ int main(int argc, char **argv)
 		};
 		
 		if (kDown & KEY_START) break;
-
+		
 		gfxFlushBuffers();
 		gfxSwapBuffers();
+
+		scene->render();
 
 		gspWaitForVBlank();
 	}
