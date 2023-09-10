@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 
 
 	TreeElement* el = new TreeElement();
-	Scene* scene = new Scene(GFX_BOTTOM);
+	Scene* scene = new Scene(GFX_BOTTOM,C2D_Color32(1.0f,0.0f,0.0f,1.0f));
 	Sprite* s = new Sprite();
 	Sprite* s2 = new Sprite();
 	
@@ -56,13 +56,14 @@ int main(int argc, char **argv)
 	
 	vector<TreeElement*> desc = scene->getChildren();
 	topCons->print(to_string(desc.size()));
+	
 	for(TreeElement* d : desc){
 		topCons->print(d->getType());
 	}
 	float speed = 5;
 	while (aptMainLoop())
 	{	
-		//scene->render();
+		scene->render();
 		topCons->render();
 		//bottomCons->render();
 
@@ -102,6 +103,8 @@ int main(int argc, char **argv)
 
 		gspWaitForVBlank();
 	}
+	C2D_Fini();
+	C3D_Fini();
 	ndspExit();
 	romfsExit();
 	gfxExit();
