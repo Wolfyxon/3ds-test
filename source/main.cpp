@@ -46,6 +46,8 @@ int main(int argc, char **argv)
 	Sprite* s = new Sprite();
 	Sprite* s2 = new Sprite();
 	
+	s->setScale(0.2,0.2);
+
 	//scene->name = "scene";
 	//s->name = "s1";
 	//s2->name = "s2";
