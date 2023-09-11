@@ -67,6 +67,7 @@ int main(int argc, char **argv)
 		topCons->print(d->getType());
 	}
 	float speed = 5;
+	float rotSpeed = 0.05;
 	while (aptMainLoop())
 	{
 
@@ -100,6 +101,14 @@ int main(int argc, char **argv)
 		if(kHeld & KEY_DOWN){
 			s->posY += speed;
 		};
+
+		if(kHeld & KEY_L){
+			s->rotationRad -= rotSpeed;
+		}
+		if(kHeld & KEY_R){
+			s->rotationRad += rotSpeed;
+		}
+
 		
 		if (kDown & KEY_START) break;
 		
