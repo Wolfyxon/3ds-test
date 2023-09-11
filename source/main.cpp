@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 		if (kDown & KEY_START) break;
 		
 		gfxFlushBuffers();
-		gfxSwapBuffers();
+		//gfxSwapBuffers();
 
 		scene->render();
 
