@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <iostream>
 #include "3ds-libs/include/Console.h"
-#include "3ds-libs/include/OpusAudioPlayer.h"
 #include "3ds-libs/include/renderable/Sprite.h"
 #include "3ds-libs/include/renderable/Scene.h"
 
@@ -58,6 +57,7 @@ int main(int argc, char **argv)
 	s->loadFromSheetFile("romfs:/gfx/test.t3x");
 	scene->addChild(s);
 	scene->addChild(s2);
+	scene->addChild(topCons);
 	//scene->addChild(el);
 	
 	vector<TreeElement*> desc = scene->getChildren();
@@ -116,6 +116,7 @@ int main(int argc, char **argv)
 		//gfxSwapBuffers();
 
 		scene->render();
+		//topCons->render();
 
 		gspWaitForVBlank();
 	}
