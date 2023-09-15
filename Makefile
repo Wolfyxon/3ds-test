@@ -37,9 +37,9 @@ include $(DEVKITARM)/3ds_rules
 
 TARGET		 :=	$(notdir $(CURDIR))
 BUILD		 :=	build
-SOURCES		 :=	source $(3DS_LIBS_SRC) $(3DS_LIBS_SRC)/renderable
+SOURCES		 :=	source $(3DS_LIBS_SRC) $(3DS_LIBS_SRC)/renderable $(3DS_LIBS_SRC)/audio
 DATA		 :=	data
-INCLUDES	 :=	include $(3DS_LIBS_INC) $(3DS_LIBS_INC)/renderable
+INCLUDES	 :=	include $(3DS_LIBS_INC) $(3DS_LIBS_INC)/renderable $(3DS_LIBS_SRC)/audio
 GRAPHICS	 :=	gfx
 #GFXBUILD	 :=	$(BUILD)
 ROMFS		 :=	romfs
