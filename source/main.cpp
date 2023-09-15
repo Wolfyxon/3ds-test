@@ -4,6 +4,7 @@
 #include "3ds-libs/include/Console.h"
 #include "3ds-libs/include/renderable/Sprite.h"
 #include "3ds-libs/include/renderable/Scene.h"
+#include "3ds-libs/include/audio/OggAudioPlayer.h"
 
 using std::string;
 using std::vector;
@@ -39,6 +40,9 @@ int main(int argc, char **argv)
     ndspChnSetRate(0, 48000);
     ndspChnSetFormat(0, NDSP_FORMAT_STEREO_PCM16);
 
+	OggAudioPlayer *au = new OggAudioPlayer();
+	topCons->print("Audio load status: "+to_string(au->load("romfs:/test.ogg")));
+	topCons->print("Press X to play a test audio (make sure your DSP firmware is dumped)");
 
 	TreeElement* el = new TreeElement();
 	Scene* scene = new Scene(GFX_BOTTOM,C2D_Color32f(1.0f,0.0f,0.0f,1.0f));
@@ -85,6 +89,9 @@ int main(int argc, char **argv)
 			topCons->print("B pressed");
 			bottomCons->print("B pressed");
 		};
+		if (kDown & KEY_X){
+			au->play();
+		}
 		if (kDown & KEY_SELECT){
 			topCons->clear();
 		}
